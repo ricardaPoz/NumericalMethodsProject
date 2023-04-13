@@ -1,0 +1,352 @@
+﻿<Window x:Class="NumericalMethods.WPFApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NumericalMethods.WPFApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="630" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <TabControl Margin="0,0,0,-26">
+            <TabItem Header="Derivation">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="5 15 5 0">
+                        <Grid Height="30">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">F(x) =</Label>
+                            <TextBox Grid.Column="1" Name="Differentiation_FunctionTextBox"></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Start X</Label>
+                            <TextBox Grid.Column="1" Name="Differentiation_StartXTextBox" ></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">End X</Label>
+                            <TextBox Grid.Column="1" Name="Differentiation_EndXTextBox"></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Step</Label>
+                            <TextBox Grid.Column="1" Name="Differentiation_StepTextBox" ></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0" Name="Differentiation_NumberOfMembersGrid" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Members Count</Label>
+                            <TextBox Grid.Column="1" Name="Differentiation_NumberOfMembers" ></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0" Name="Differentiation_AccuracyGrid" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Accuracy</Label>
+                            <TextBox Grid.Column="1" Name="Differentiation_Accuracy"></TextBox>
+                        </Grid>
+                        <Button Name="Differentiation_AddNodesOnChart" Height="30" Margin="0 10 0 0" Click="Differentiation_AddNodesOnChart_Click">ADD POINTS ON CHART</Button>
+                        <Border Margin="0 10 0 0" BorderThickness="1" BorderBrush="Black">
+                            <StackPanel Margin="5 5 5 5">
+                                <Label Margin="0 10 0 0" HorizontalContentAlignment="Center">Interpolation</Label>
+                                <ComboBox Name="Differentiation_InterpolationFunctionTypeComboBox" Height="30"  Margin="0 10 0 0"/>
+                                <Button Name="Differentiation_AddOnChartInterpolationButton" Height="30" Margin="0 10 0 0" Click="Differentiation_AddOnChartInterpolationButton_Click">ADD ON CHART</Button>
+                            </StackPanel>
+                        </Border>
+                        <Border Margin="0 10 0 0" BorderThickness="1" BorderBrush="Black">
+                            <StackPanel Margin="5 5 5 5">
+                                <Label Margin="0 10 0 0" HorizontalContentAlignment="Center">Differentiation</Label>
+                                <ComboBox Name="Differentiation_FunctionTypeComboBox" Height="30"  Margin="0 10 0 0" SelectionChanged="Differentiation_FunctionTypeComboBox_SelectionChanged"/>
+                                <Grid Height="30" Margin="0 10 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="103"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">Derivative degree</Label>
+                                    <TextBox Grid.Column="1" Name="DerivativeDegreeTextBox"></TextBox>
+                                </Grid>
+                                <Button Name="Differentiation_AddOnChartButton" Height="30" Margin="0 10 0 0" Click="Differentiation_AddOnChartButton_Click">ADD ON CHART</Button>
+                            </StackPanel>
+                        </Border>
+                        <Button Name="Differentiation_ClearChartButton" Height="30" Margin="0 10 0 0" Click="Differentiation_ClearChartButton_Click">CLEAR CHART</Button>
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="224*"/>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="411*"/>
+                        </Grid.ColumnDefinitions>
+                        <WpfPlot Name="Differentiation_MainChart" Grid.ColumnSpan="3"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Integrating">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="5 15 5 0">
+                        <Grid Height="30">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">F(x) =</Label>
+                            <TextBox Grid.Column="1" Name="Integration_FunctionTextBox"></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Start X</Label>
+                            <TextBox Grid.Column="1" Name="Integration_StartXTextBox" ></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">End X</Label>
+                            <TextBox Grid.Column="1" Name="Integration_EndXTextBox"></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Step</Label>
+                            <TextBox Grid.Column="1" Name="Integration_StepTextBox"></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0" Name="Integration_CountPointGrid" Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Count point</Label>
+                            <TextBox Grid.Column="1" Name="Integration_CountPointTextBox"></TextBox>
+                        </Grid>
+                        <Grid Height="30"  Margin="0 10 0 0" Name="Integration_CountNodesGrid"  Visibility="Collapsed">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0">Count nodes</Label>
+                            <TextBox Grid.Column="1" Name="Integration_CountNodesTextBox"></TextBox>
+                        </Grid>
+                        <Label Margin="0 10 0 0" HorizontalContentAlignment="Center">Integration method</Label>
+                        <ComboBox Name="Integration_MethodComboBox" Height="30"  Margin="0 10 0 0" SelectionChanged="Integration_MethodComboBox_SelectionChanged"/>
+                        <Button Name="Integration_CalculateButton" Height="30" Margin="0 10 0 0" Click="Integration_CalculateButton_Click">CALCULATE</Button>
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <WpfPlot Name="Integration_MainChart"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="System of non-linear equations">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="8*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="5 15 5 0">
+                        <Grid Height="550">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="5*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="4*"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0" Margin="0 0 0 10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" VerticalAlignment="Center" FontSize="14">SNE Method</Label>
+                                <ComboBox Grid.Column="1" Name="SNE_methodComboBox"></ComboBox>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="0 0 0 10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2.5*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" VerticalAlignment="Center" FontSize="14">Accuracy</Label>
+                                <TextBox Grid.Column="1" Name="SNE_AccuracyTextBox" VerticalContentAlignment="Center"/>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">Add/Remove equation</Label>
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Button Name="SNE_AddEquationButton" Height="30" FontSize="18" Click="SNE_AddEquationButton_Click">+</Button>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Button Name="SNE_RemoveEquationButton" Height="30" FontSize="18" Click="SNE_RemoveEquationButton_Click">-</Button>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <ScrollViewer Background="LightGray">
+                                    <Grid x:Name="SNE_systemOfEquationsGrid">
+
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                            <Grid Grid.Row="5">
+                                <Label VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14">Initial approximation</Label>
+                            </Grid>
+                            <Grid Grid.Row="6">
+                                <ScrollViewer Margin="0 0 0 10" Background="LightGray">
+                                    <Grid x:Name="SNE_initialApproximationGrid">
+
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                            <Grid Grid.Row="7">
+                                <Button Name="SNE_CalculateButton" Height="30" Click="SNE_CalculateButton_Click" >CALCULATE</Button>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1">
+                        <Border BorderBrush="Black" BorderThickness="1 0 0 0">
+                            <ScrollViewer Background="LightGray">
+                                <DataGrid x:Name="SNE_ResultDataGrid" IsReadOnly="True" FontSize="20"></DataGrid>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="CauchyProblem">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="5 15 5 0">
+                        <Grid Height="70">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Order</Label>
+                                <TextBox Grid.Column="1" Name="CauchyProblem_OrderTextBox"></TextBox>
+                            </Grid>
+                            <Button Grid.Row="1" Margin="0 10 0 0" Name="CauchyProblem_OrderSelectButton" Click="CauchyProblem_OrderSelectButton_Click">Select</Button>
+                        </Grid>
+                        <Grid Height="280" Name="CauchyProblem_Properties" Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition Height="3*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Height="30" Margin="0 10 0 0" Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Name="CauchyProblem_MaxOrderFunctionLabel"></Label>
+                                <TextBox Grid.Column="1" Name="CauchyProblem_MaxOrderFunctionTextBox"></TextBox>
+                            </Grid>
+                            <Grid Height="30"  Margin="0 10 0 0" Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">End X</Label>
+                                <TextBox Grid.Column="1" Name="CauchyProblem_EndXTextBox"></TextBox>
+                            </Grid>
+                            <Grid Height="30"  Margin="0 10 0 0" Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">Step</Label>
+                                <TextBox Grid.Column="1" Name="CauchyProblem_StepTextBox"></TextBox>
+                            </Grid>
+                            <Grid Height="30"  Margin="0 10 0 0" Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0">X</Label>
+                                <TextBox Grid.Column="1" Name="CauchyProblem_InitXTextBox" TextChanged="CauchyProblem_InitXTextBox_TextChanged"></TextBox>
+                            </Grid>
+                            <Grid Height="110" Grid.Row="4" Margin="0 5 0 0" Name="CauchyProblem_ParentInitFunctionsGrid" Visibility="Collapsed">
+                                <ScrollViewer Background="White">
+                                    <Grid Name="CauchyProblem_InitFunctionsGrid">
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                        <Border Margin="0 10 0 0" BorderThickness="1" BorderBrush="Black">
+                            <StackPanel Margin="5 5 5 5">
+                                <Label Margin="0 10 0 0" HorizontalContentAlignment="Center">Method</Label>
+                                <ComboBox Name="CauchyProblem_FunctionTypeComboBox" Height="30"  Margin="0 10 0 0" SelectionChanged="CauchyProblem_FunctionTypeComboBox_SelectionChanged"/>
+                                <ComboBox Name="CauchyProblem_OneStepMethodComboBox" Height="30"  Margin="0 10 0 0" Visibility="Collapsed"/>
+                                <Grid Height="30"  Margin="0 10 0 0" Name="CauchyProblem_PreCalcCountGrid" Visibility="Collapsed">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="90"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0">PreCalcCount</Label>
+                                    <TextBox Grid.Column="1" Name="CauchyProblem_PreCalcCount" ></TextBox>
+                                </Grid>
+                                <Button Name="CauchyProblem_AddOnChartButton" Height="30" Margin="0 10 0 0" Click="CauchyProblem_AddOnChartButton_Click">ADD ON CHART</Button>
+                            </StackPanel>
+                        </Border>
+                        <Border Margin="0 10 0 0" BorderThickness="1" BorderBrush="Black">
+                            <StackPanel Margin="5 5 5 5">
+                                <Label Margin="0 10 0 0" HorizontalContentAlignment="Center">Interpolation</Label>
+                                <ComboBox Name="CauchyProblem_InterpolationFunctionTypeComboBox" Height="30"  Margin="0 10 0 0"/>
+                                <Button Name="CauchyProblem_AddOnChartInterpolationButton" Height="30" Margin="0 10 0 0" Click="CauchyProblem_AddOnChartInterpolationButton_Click">ADD ON CHART</Button>
+                            </StackPanel>
+                        </Border>
+                        <Button Name="CauchyProblem_ClearChartButton" Height="30" Margin="0 10 0 0" Click="CauchyProblem_ClearChartButton_Click">CLEAR CHART</Button>
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="251*"/>
+                            <ColumnDefinition Width="393*"/>
+                        </Grid.ColumnDefinitions>
+                        <WpfPlot Name="CauchyProblem_MainChart" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

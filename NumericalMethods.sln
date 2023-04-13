@@ -1,0 +1,91 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericalMethods.WPFApplication", "NumericalMethods.WPFApplication\NumericalMethods.WPFApplication.csproj", "{D9CF7C8A-51F4-49A1-979B-8C5B280A495F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E0166B1-8566-4F03-A046-80BB94E89C96}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericalMethods.Console", "NumericalMethods.Console\NumericalMethods.Console.csproj", "{CC1B944A-CC00-4DCF-BFBE-5BE815AF3271}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericalMethods.Core.Approximation", "NumericalMethods.Core\NumericalMethods.Core.Approximation\NumericalMethods.Core.Approximation.csproj", "{B5DB8685-D7D2-4438-A0AB-2E05CC693797}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericalMethods.Core.Differentiation", "NumericalMethods.Core\NumericalMethods.Core.Differentiation\NumericalMethods.Core.Differentiation.csproj", "{D450C834-6912-428A-B0F2-FF2A8748CEDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericalMethods.Infrastructure.Integration", "NumericalMethods.Core\NumericalMethods.Infrastructure.Integration\NumericalMethods.Infrastructure.Integration.csproj", "{D92E0E07-BBFB-4BF7-87C4-35D0D31BDA10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericalMethods.Infrastructure.NonLinearEquationsSystems", "NumericalMethods.Core\NumericalMethods.Infrastructure.NonLinearEquationsSystems\NumericalMethods.Infrastructure.NonLinearEquationsSystems.csproj", "{73279C03-EA86-482B-9805-21E97666CD8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NumericalMethods.Core", "NumericalMethods.Core", "{0C247404-3A5A-4765-8A70-01BCBC80B11E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericalMethods.Core.CauchyProblem", "NumericalMethods.Core\NumericalMethods.Core.CauchyProblem\NumericalMethods.Core.CauchyProblem.csproj", "{0D6E083F-0FF1-452C-B3D1-455BDE2D9DCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{A6429FBF-429E-4547-B940-8BA6D1D95048}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\example_de_1.png = ..\..\..\Desktop\example_de_1.png
+		..\..\..\Desktop\example_de_2.png = ..\..\..\Desktop\example_de_2.png
+		..\..\..\Desktop\example_differentiation_1.png = ..\..\..\Desktop\example_differentiation_1.png
+		..\..\..\Desktop\example_differentiation_2.png = ..\..\..\Desktop\example_differentiation_2.png
+		..\..\..\Desktop\example_nls.png = ..\..\..\Desktop\example_nls.png
+		..\..\..\Desktop\representation_de_1.png = ..\..\..\Desktop\representation_de_1.png
+		..\..\..\Desktop\representation_de_2.png = ..\..\..\Desktop\representation_de_2.png
+		..\..\..\Desktop\representation_differentiation_1.png = ..\..\..\Desktop\representation_differentiation_1.png
+		..\..\..\Desktop\representation_differentiation_2.png = ..\..\..\Desktop\representation_differentiation_2.png
+		..\..\..\Desktop\representation_integration.png = ..\..\..\Desktop\representation_integration.png
+		..\..\..\Desktop\representation_nls.png = ..\..\..\Desktop\representation_nls.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9CF7C8A-51F4-49A1-979B-8C5B280A495F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9CF7C8A-51F4-49A1-979B-8C5B280A495F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9CF7C8A-51F4-49A1-979B-8C5B280A495F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9CF7C8A-51F4-49A1-979B-8C5B280A495F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC1B944A-CC00-4DCF-BFBE-5BE815AF3271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC1B944A-CC00-4DCF-BFBE-5BE815AF3271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC1B944A-CC00-4DCF-BFBE-5BE815AF3271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC1B944A-CC00-4DCF-BFBE-5BE815AF3271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5DB8685-D7D2-4438-A0AB-2E05CC693797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5DB8685-D7D2-4438-A0AB-2E05CC693797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5DB8685-D7D2-4438-A0AB-2E05CC693797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5DB8685-D7D2-4438-A0AB-2E05CC693797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D450C834-6912-428A-B0F2-FF2A8748CEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D450C834-6912-428A-B0F2-FF2A8748CEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D450C834-6912-428A-B0F2-FF2A8748CEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D450C834-6912-428A-B0F2-FF2A8748CEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D92E0E07-BBFB-4BF7-87C4-35D0D31BDA10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D92E0E07-BBFB-4BF7-87C4-35D0D31BDA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D92E0E07-BBFB-4BF7-87C4-35D0D31BDA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D92E0E07-BBFB-4BF7-87C4-35D0D31BDA10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73279C03-EA86-482B-9805-21E97666CD8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73279C03-EA86-482B-9805-21E97666CD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73279C03-EA86-482B-9805-21E97666CD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73279C03-EA86-482B-9805-21E97666CD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6E083F-0FF1-452C-B3D1-455BDE2D9DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6E083F-0FF1-452C-B3D1-455BDE2D9DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6E083F-0FF1-452C-B3D1-455BDE2D9DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6E083F-0FF1-452C-B3D1-455BDE2D9DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B5DB8685-D7D2-4438-A0AB-2E05CC693797} = {0C247404-3A5A-4765-8A70-01BCBC80B11E}
+		{D450C834-6912-428A-B0F2-FF2A8748CEDB} = {0C247404-3A5A-4765-8A70-01BCBC80B11E}
+		{D92E0E07-BBFB-4BF7-87C4-35D0D31BDA10} = {0C247404-3A5A-4765-8A70-01BCBC80B11E}
+		{73279C03-EA86-482B-9805-21E97666CD8F} = {0C247404-3A5A-4765-8A70-01BCBC80B11E}
+		{0D6E083F-0FF1-452C-B3D1-455BDE2D9DCF} = {0C247404-3A5A-4765-8A70-01BCBC80B11E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85768CA4-0E30-4F4D-A022-F87FAAFD4D2F}
+	EndGlobalSection
+EndGlobal
